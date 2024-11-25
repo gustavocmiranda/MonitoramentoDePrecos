@@ -43,5 +43,3 @@ if submit_button:
     # Salvar os dados no arquivo CSV
     updated_data.to_csv(data_file, index=False)
     st.success("Dados enviados com sucesso!")
-
-st.write("Outside the form")
