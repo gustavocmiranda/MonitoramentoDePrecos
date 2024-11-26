@@ -2,8 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 
-# Nome do arquivo CSV onde os dados serão armazenados
-data_file = "compras.csv"
+from database import connect_to_database, save_product
 
 
 mercados = [
@@ -31,15 +30,9 @@ if submit_button:
         "Promoção": promocao,
         "Data": data
     }
-    new_data = pd.DataFrame([novo_dado])
 
-    # Verificar se o arquivo existe antes de tentar ler
-    if os.path.exists(data_file):
-        existing_data = pd.read_csv(data_file)
-        updated_data = pd.concat([existing_data, new_data], axis=0, ignore_index=True)
-    else:
-        updated_data = new_data
+    conn = connect_to_database()
+    save_product(conn, novo_dado)
+    conn.close()
     
-    # Salvar os dados no arquivo CSV
-    updated_data.to_csv(data_file, index=False)
     st.success("Dados enviados com sucesso!")
