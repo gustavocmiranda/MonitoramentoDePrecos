@@ -1,6 +1,6 @@
 import streamlit as st
 
-from database import connect_to_database, save_product
+from app.database import connect_to_database, save_product
 
 
 mercados = [
