@@ -1,8 +1,5 @@
 import psycopg2
-from psycopg2 import sql
 from dotenv import load_dotenv
-import pandas as pd
-from pandas import DataFrame
 import os
 
 load_dotenv()

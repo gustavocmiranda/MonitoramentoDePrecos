@@ -1,6 +1,4 @@
 import streamlit as st
-import pandas as pd
-import os
 
 from database import connect_to_database, save_product
 
@@ -11,7 +9,6 @@ mercados = [
 
 # Criação do formulário
 with st.form("dados_enquete", clear_on_submit=True):
-    # produto = st.selectbox("Produto", estados)
     produto = st.text_input("Produto")
     preco = st.number_input("Preço")
     mercado = st.selectbox("Mercado", mercados, )
@@ -34,5 +31,5 @@ if submit_button:
     conn = connect_to_database()
     save_product(conn, novo_dado)
     conn.close()
-    
+
     st.success("Dados enviados com sucesso!")
