@@ -1,11 +1,15 @@
 import streamlit as st
 
-from app.database import connect_to_database, save_product
+from x_database import connect_to_database, save_product
 
 
 mercados = [
     "Zona Sul", "Guanabara", "Amazon", "Pão de Açúcar", "Ultra", "FarmaLife"
 ]
+
+st.sidebar.markdown('Cadastro de Novo Produto')
+
+st.markdown('# Novo Produto')
 
 # Criação do formulário
 with st.form("dados_enquete", clear_on_submit=True):
