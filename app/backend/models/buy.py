@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, Boolean, String, Float, DateTime
 from database.database import Base
 
-class Buy(Base):
+class BuyModel(Base):
     __tablename__ = 'compras'
     id = Column(Integer, primary_key=True)
     produto = Column(String)
