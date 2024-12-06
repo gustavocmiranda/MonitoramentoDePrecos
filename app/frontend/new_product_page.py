@@ -1,7 +1,5 @@
 import streamlit as st
 
-from x_database import connect_to_database, save_product
-
 
 mercados = [
     "Zona Sul", "Guanabara", "Amazon", "Pão de Açúcar", "Ultra", "FarmaLife"
@@ -32,8 +30,5 @@ if submit_button:
         "Data": data
     }
 
-    conn = connect_to_database()
-    save_product(conn, novo_dado)
-    conn.close()
 
     st.success("Dados enviados com sucesso!")

@@ -4,7 +4,7 @@ services:
       context: ./app/backend
       dockerfile: Dockerfile
     volumes:
-      - .backend:/app
+      - ./app/backend:/app
     environment:
       DATABASE_URL: postgres://user:password@postgres/mydatabase
     ports:
@@ -19,7 +19,7 @@ services:
       context: ./app/frontend
       dockerfile: Dockerfile
     volumes:
-      - ./frontend:/app
+      - ./app/frontend:/app
     ports:
       - 8501:8501
     networks:
