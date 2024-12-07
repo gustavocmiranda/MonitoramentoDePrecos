@@ -1,4 +1,5 @@
 import streamlit as st
+import requests
 
 
 mercados = [
@@ -23,12 +24,15 @@ with st.form("dados_enquete", clear_on_submit=True):
 # Se o botão foi clicado, salvar os dados no DataFrame e no CSV
 if submit_button:
     novo_dado = {
-        "Produto": produto,
-        "Preço": preco,
-        "Mercado": mercado,
-        "Promoção": promocao,
-        "Data": data
+        "produto": produto.upper(),
+        "preco": preco,
+        "local_de_compra": mercado,
+        "promocao": promocao,
+        "data_de_compra": data.isoformat()
     }
 
+    response = requests.post("http://backend:8000/buys/",
+                             json= novo_dado)
 
-    st.success("Dados enviados com sucesso!")
+    if response.status_code == 200:
+        st.success("Compra cadastrada com sucesso!")
