@@ -18,7 +18,7 @@ with st.expander('Todas as compras'):
             st.write(df.to_html(index=False), unsafe_allow_html=True)
 
 with st.expander('Última compra'):
-    if st.button("Exibir todas as compras", key='btn_get_last_buy'):
+    if st.button("Exibir última compra", key='btn_get_last_buy'):
         response = requests.get("http://backend:8000/last/")
 
         if response.status_code == 200:
